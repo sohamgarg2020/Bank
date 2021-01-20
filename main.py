@@ -14,13 +14,13 @@ while True:
   Welcome to Soham's Bank!!
   =========================
   Please pick one of the options:
-  1 - Make an account
+  1 - Make an Account
   2 - Add Money
   3 - Withdraw Money
   4 - Transfer Money
   5 - Close your account
   6 - Exit.
-  7 - Forgot my ID.
+  7 - Forgot my Password.
   =========================
   Pick your option: """)
 
@@ -56,6 +56,19 @@ while True:
         moreinfo["first_name"] = str(fname)
         lname = input("\n What's your last name? ")
         moreinfo["last_name"] = str(lname)
+        with open("username_password.json", 'r') as g:
+            dat = json.load(g)
+        while True:
+            username = input("\n What's your username? ")
+            if username in dat.keys():
+                print("This username is already in use. Please choose another one.")
+                continue
+            else:
+                break
+        password = input("\n What's your password? ")
+        dat[str(username)] = str(password)
+        with open("username_password.json", 'w') as h:
+            json.dump(dat, h)
         print("\n Your account has been created!")
         print("\n" + questions)
         option2 = input("\n Pick one option for a security question (You will have to restart the process if you don't pick a correct number): ")
