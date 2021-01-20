@@ -57,16 +57,6 @@ while True:
         lname = input("\n What's your last name? ")
         moreinfo["last_name"] = str(lname)
         print("\n Your account has been created!")
-        with open("number.json", "r") as b:
-          number = json.load(b)
-        x = list(number.keys())[0]
-        print(f"\n Your ID is {x}. Make sure to remember this. If you forget make sure to pick option 7 to get your ID.")
-        moreinfo["ID"] = str(x)
-        x = int(x)
-        x += 1
-        x = str(x)
-        with open("number.json", "w") as r:
-          json.dump(number, r)
         print("\n" + questions)
         option2 = input("\n Pick one option for a security question (You will have to restart the process if you don't pick a correct number): ")
         try:
