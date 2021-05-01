@@ -11,7 +11,7 @@ while True:
 
     option = input("""
   =========================
-  Welcome to Soham's Bank!!
+  Welcome to My Bank!!
   =========================
   Please pick one of the options:
   1 - Make an Account
@@ -104,6 +104,7 @@ while True:
                     actualp = data[str(uname)]
                     if str(passw) == str(actualp):
                         print("Perfect! You are now logged in!")
+                        c = 1
                         break
                     else:
                         print("You mistyped your password. Please try again.")
@@ -111,13 +112,26 @@ while True:
                 
             else:
                 print("You don't have an account, or you mistyped your username. Either way you are going back to the home page.")
+                c = 0
+            
+            if c == 1:
+                money = input("How much money do you want to add to your account: ")
+                try:
+                    money = float(money)
+                except:
+                    print("The money you inputted is not integer.")
+                    
+
+            
+            
+
                 
 
        
       
 
         elif option == 6:
-            print("\n Thanks for using Soham's bank! We hope you will return!")
+            print("\n Thanks for using My bank! We hope you will return!")
             break
         elif option == 7:
             continue
