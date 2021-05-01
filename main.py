@@ -1,11 +1,6 @@
 import json
 
-questions = """
-1 - What is your mother's name?
-2 - What city were you born in?
-3 - What month was your younget sibling born in?
-4 - What city did your parents fall in love?
-"""
+questions = ["1 - What is your mother's name?", "2 - What city were you born in?", "3 - What month was your younget sibling born in?", "4 - What city did your parents fall in love?"]
 
 while True:
 
@@ -70,7 +65,11 @@ while True:
                 with open("username_password.json", 'w') as h:
                     json.dump(dat, h)
                 print("\n Your account has been created!")
-                print("\n" + questions)
+                questionstring = ""
+                for i in questions:
+                    questionstring += i
+                    questionstring+= "\n"
+                print(questionstring)
                 option2 = input("\n Pick one option for a security question (You will have to restart the process if you don't pick a correct number): ")
                 try:
                     option2 = int(option2)
